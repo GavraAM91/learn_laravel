@@ -1,3 +1,4 @@
-<div>
-    <!-- Life is available only in the present moment. - Thich Nhat Hanh -->
-</div>
+<x-layout>
+    <x-slot:title>{{ $title }}</x-slot:title>
+    <h3 class="text-xl">About me</h3>
+</x-layout>

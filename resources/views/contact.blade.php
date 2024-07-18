@@ -1,3 +1,4 @@
-<div>
-    <!-- Simplicity is an acquired taste. - Katharine Gerould -->
-</div>
+<x-layout>
+    <x-slot:title>{{ $title }}</x-slot:title>
+    <h3 class="text-xl">Contact Us</h3>
+</x-layout>
