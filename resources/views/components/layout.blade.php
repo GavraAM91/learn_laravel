@@ -11,7 +11,7 @@
     @vite('resources/css/app.css')
 
     {{-- CSS --}}
-    
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 
     {{-- ALPINE JS --}}
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -25,7 +25,9 @@
         
         <x-header>{{ $title }}</x-header>
         <main>
-            {{ $slot }}
+            <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+                {{ $slot }}
+            </div>
         </main>
     </div>
 
