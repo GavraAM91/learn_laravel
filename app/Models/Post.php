@@ -6,7 +6,8 @@ use Illuminate\Support\Arr;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Post extends Model
+// class Post extends Model
+class Post 
 {
     public static function all()
     {
