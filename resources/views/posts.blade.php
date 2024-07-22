@@ -10,8 +10,8 @@
                 <a href="/authors/{{ $post->author->username }}"
                     class="text-base text-gray-500 hover:underline">{{ $post->author->name }}</a>
                 in
-                <a href="/authors/{{ $post->author->username }}"
-                    class="text-base text-gray-500 hover:underline">Web Programming Unpas</a>
+                <a href="/categories/{{ $post->category->slug }}"
+                    class="text-base text-gray-500 hover:underline">{{ $post->category->name }}     </a>
                 | {{ $post->created_at->diffForHumans() }}
             </div>
             <p class="my-4 font-light">
