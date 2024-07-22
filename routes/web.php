@@ -25,7 +25,11 @@ Route::get('/contact', function () {
     return view('contact', ['title' => 'Contact']);
 });
 
-Route::get('/authors/{user}', function (User $user) {
-    return view('posts', ['title' => 'Articles by' . $user->name , 'posts' => $user->posts]);
+Route::get('/authors/{user:username}', function (User $user) {
+    return view('posts', ['title' => count($user->posts) . 'Articles by' . $user->name , 'posts' => $user->posts]);
 });
+
+// Route::get('/categories/{categories}', function(Categories $categories) {
+//     return view('posts', ['title' => 'Categories' . $categories->name ]);
+// });
 
