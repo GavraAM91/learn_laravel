@@ -5,6 +5,7 @@ use App\Models\User;
 use App\Models\Category;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Post\PostController;
 
 Route::get('/', function () {
     return view('home', ['title' => 'Home Page']);
@@ -38,4 +39,10 @@ Route::get('/categories/{category:slug}', function (Category $category) {
     return view('posts', ['title' => 'Articles in : ' . $category->name, 'posts' => $category->posts]);
 });
 
+// Route::get('/crud/crud', function() {
+//     return view('/crud/crud', ['title' => 'CRUD Post']);
+// });
+
+Route::get('/crud/crud', [PostController::class, 'index']);
+Route::post('/crud/crud', [PostController::class, 'store']);
 
