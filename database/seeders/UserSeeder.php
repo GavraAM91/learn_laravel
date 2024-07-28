@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        User::create([
+        $admin = User::create([
             'name' => 'Gavra Maheswara',
             'username' => 'Gavra',
             'email' => 'gavramaheswara07@gmail.com',
@@ -23,7 +23,23 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password'),
             'remember_token' => Str::random(10)
         ]);
-        
-        User::factory(5)->create();
+
+        //get admin role
+        $admin->assignRole('admin');
+
+        $penulis = User::create([
+            'name' => 'user1',
+            'username' => 'user1',
+            'email' => 'user1@gmail.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('password'),
+            'remember_token' => Str::random(10)
+        ]);
+
+        //get penulis role
+        $penulis->assignRole('penulis');
+
+        //create 5 user random (dummy data)
+        // User::factory(5)->create();
     }
 }
