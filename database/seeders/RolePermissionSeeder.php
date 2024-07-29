@@ -49,6 +49,6 @@ class RolePermissionSeeder extends Seeder
         $roleAdmin->givePermissionTo('hapus-tulisan');
         $roleAdmin->givePermissionTo('lihat-tulisan');
     }
-
+    
 
 }
