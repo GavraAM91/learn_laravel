@@ -4,6 +4,7 @@
 
     <h3 class="text-center mb3">Admin Login Page</h3>
     <form method="POST" action="{{ route('admin.login') }}">
+
         @csrf
 
         <!-- Email Address -->
