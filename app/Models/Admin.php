@@ -29,7 +29,7 @@ class Admin extends Authenticatable
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
+     * The attributes that should be hidden for serialization.asdas
      *
      * @var array<int, string>
      */
@@ -51,7 +51,7 @@ class Admin extends Authenticatable
         ];
     }
 
-    public function posts(): HasMany {
-        return $this->hasMany(Post::class, 'author_id');
-    }
+    // public function posts(): HasMany {
+    //     return $this->hasMany(Post::class, 'author_id');
+    // }
 }
