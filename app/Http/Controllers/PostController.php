@@ -64,17 +64,36 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Post $post)
     {
-        return view('blog.edit');
+        return view('blog.edit', compact('category'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Post $post)
     {
-        //
+         // dd($request);
+
+         $request->validate([
+            'title' => 'required|string|min:3',
+            'category_id' => 'required',
+            'body' => 'required|string|min:10'
+        ]);
+
+        //get author_id 
+        $authorId = Auth::id();
+
+       $post->update([
+            'title' => $request->title,
+            'author_id' => $authorId,
+            'category_id' => $request->category_id,
+            'body' => $request->body,
+            'slug' => Str::slug($request->title),
+        ]);
+
+        return redirect('/posts')->with('status', 'Blog Post Created Succesfuly');
     }
 
     /**
