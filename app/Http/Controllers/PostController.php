@@ -50,9 +50,7 @@ class PostController extends Controller
             'slug' => Str::slug($request->title),
         ]);
 
-        dd($data);
-
-        return redirect('/blog')->with('status', 'Blog Post Created Succesfuly');
+        return redirect('/posts')->with('status', 'Blog Post Created Succesfuly');
     }
 
     /**
