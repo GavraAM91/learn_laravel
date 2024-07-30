@@ -10,7 +10,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        return view('/crud/crud', ['title' => 'CRUD']);
+        return view('/blog/create', ['title' => 'CRUD']);
     }
 
     public function create()
