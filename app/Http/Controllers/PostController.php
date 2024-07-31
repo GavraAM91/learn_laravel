@@ -15,7 +15,16 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('blog.index', ['title' => 'index']);
+        // get ID user
+        $userId = Auth::id();
+
+        // Mengambil all post
+        $posts = Post::where('id', $userId)->get();
+
+        return view('blog.index', [
+            'title' => 'My Blog Posts',
+            'posts' => $posts
+        ]);
     }
 
     /**
@@ -42,7 +51,7 @@ class PostController extends Controller
         //get author_id 
         $authorId = Auth::id();
 
-       $data =  Post::create([
+        $data =  Post::create([
             'title' => $request->title,
             'author_id' => $authorId,
             'category_id' => $request->category_id,
@@ -74,9 +83,9 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-         // dd($request);
+        // dd($request);
 
-         $request->validate([
+        $request->validate([
             'title' => 'required|string|min:3',
             'category_id' => 'required',
             'body' => 'required|string|min:10'
@@ -85,7 +94,7 @@ class PostController extends Controller
         //get author_id 
         $authorId = Auth::id();
 
-       $post->update([
+        $post->update([
             'title' => $request->title,
             'author_id' => $authorId,
             'category_id' => $request->category_id,
