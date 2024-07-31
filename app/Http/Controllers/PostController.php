@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('blog.create', ['title' => 'create']);
+        return view('blog.index', ['title' => 'index']);
     }
 
     /**
@@ -23,7 +23,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('blog.create', ['title' => 'Create']);
     }
 
     /**

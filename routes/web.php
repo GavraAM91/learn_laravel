@@ -14,7 +14,7 @@ use App\Models\Category;
 use Illuminate\Support\Arr;
 
 Route::get('/', function () {
-    return view('home', ['title' => 'Home Page']);
+    return view('dashboard', ['title' => 'Home Page']);
 });
 
 Route::get('/about', function () {
@@ -40,13 +40,12 @@ Route::get('/authors/{user:username}', function (User $user) {
 });
 
 Route::get('/categories/{category:slug}', function (Category $category) {
-    // $posts = $category->posts->load('category', 'author');
-
     return view('posts', ['title' => 'Articles in : ' . $category->name, 'posts' => $category->posts]);
 });
 
+//login route
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('dashboard', ['title' => 'Home Page']);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -56,9 +55,21 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('blog',PostController::class);
+
+//route for CRUD 
+Route::middleware('auth')->group(function () {
+    Route::get('/blog', [PostController::class, 'create'])->name('blog.create');
+    Route::post('/blog', [PostController::class, 'store'])->name('blog.store');
+    Route::get('/blog/{post}/edit', [PostController::class, 'edit'])->name('blog.edit');
+    Route::patch('/blog/{post}', [PostController::class, 'update'])->name('blog.update');
+    Route::delete('/blog/{post}', [PostController::class, 'destroy'])->name('blog.destroy');
+});
+
 // Route::middleware(['auth'])->group(function () {
 //     Route::post('/blog/store', [PostController::class, 'store'])->name('blog.store');
 // });
 
 require __DIR__.'/auth.php';
+
+//admin route
 require __DIR__.'/admin-auth.php';

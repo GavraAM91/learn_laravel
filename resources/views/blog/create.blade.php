@@ -10,7 +10,7 @@
                             @foreach ($errors->all() as $error)
                                 <li>{{ $error }}</li>
                             @endforeach
-                        </ul>
+                        </ul>   
                     </div>
                 @endif
                 <form action="{{ route('blog.store') }}" method="post">
@@ -19,16 +19,17 @@
                         <div class="sm:col-span-2">
                             <label for="title" class="block mb-2 text-sm font-medium text-gray-900">Title</label>
                             <input type="text" name="title" id="title"
-                                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                                   placeholder="title" required="">
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                                placeholder="title" required="">
                             @error('title')
                                 <span class="text-red-500 text-sm">{{ $message }}</span>
                             @enderror
                         </div>
-                        <div>
-                            <label for="category_id" class="block mb-2 text-sm font-medium text-gray-900">Category</label>
+                        <div class="sm:col-span-2">
+                            <label for="category_id"
+                                class="block mb-2 text-sm font-medium text-gray-900">Category</label>
                             <select id="category_id" name="category_id"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
                                 <option value="1">Web design</option>
                                 <option value="2">UI/UX</option>
                                 <option value="3">Machine Learning</option>
@@ -42,8 +43,8 @@
                         <div class="sm:col-span-2">
                             <label for="body" class="block mb-2 text-sm font-medium text-gray-900">Body</label>
                             <textarea id="body" name="body" rows="6"
-                                      class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500"
-                                      placeholder="Write a body here..."></textarea>
+                                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500"
+                                placeholder="Write a body here..."></textarea>
                             @error('body')
                                 <span class="text-red-500 text-sm">{{ $message }}</span>
                             @enderror
@@ -51,11 +52,11 @@
                     </div>
                     <div class="flex items-center space-x-4">
                         <button type="submit"
-                                class="bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center text-white">
+                            class="bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center text-white">
                             Save
                         </button>
                     </div>
-                </form>                
+                </form>
             </div>
         </div>
     </div>

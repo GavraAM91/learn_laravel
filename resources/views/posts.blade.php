@@ -18,9 +18,8 @@
                             Search
                         </label>
                         <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                            <svg class="w-5 h-5 text-gray-500" aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                                viewBox="0 0 24 24">
+                            <svg class="w-5 h-5 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                width="24" height="24" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
                                     d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
                             </svg>
@@ -38,6 +37,12 @@
                     </div>
                 </div>
             </form>
+            <div>
+                <a href="{{ url('/blog') }}"
+                    class="rounded-md bg-indigo-600 mr-5 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                   Create Blog
+                </a>
+            </div>
         </div>
     </div>
 
@@ -46,8 +51,7 @@
     <div class="my-4 py-4 px-4 mx-auto max-w-screen-xl lg:py-4 lg:px-0">
         <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 ">
             @forelse ($posts as $post)
-                <article
-                    class="p-6 bg-white rounded-lg border border-gray-200 shadow-md">
+                <article class="p-6 bg-white rounded-lg border border-gray-200 shadow-md">
                     <div class="flex justify-between items-center mb-5 text-gray-500">
                         <a href="/posts?category={{ $post->category->slug }}">
                             <span

@@ -13,7 +13,7 @@
                         <x-nav-link href="/posts" :active="request()->is('posts')">Blog</x-nav-link>
                         <x-nav-link href="/about" :active="request()->is('about')">About</x-nav-link>
                         <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
-                        <x-nav-link href="/blog" :active="request()->is('blog')">Create</x-nav-link>
+                        {{-- <x-nav-link href="/blog" :active="request()->is('blog')">Create</x-nav-link> --}}
                     </div>
                 </div>
             </div>
@@ -53,6 +53,8 @@
                             <!-- Active: "bg-gray-100", Not Active: "" -->
                             <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem"
                                 tabindex="-1" id="user-menu-item-0">Your Profile</a>
+                            <a href="{{ url('/blog') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem"
+                                tabindex="-1" id="user-menu-item-0">My Blog</a>
                             <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem"
                                 tabindex="-1" id="user-menu-item-1">Settings</a>
                             <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem"
@@ -92,7 +94,7 @@
             <x-nav-link href="/posts" :active="request()->is('posts')">Blog</x-nav-link>
             <x-nav-link href="/about" :active="request()->is('about')">About</x-nav-link>
             <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
-            <x-nav-link href="/blog" :active="request()->is('blog')">Contact</x-nav-link>
+            {{-- <x-nav-link href="/blog" :active="request()->is('blog')">Contact</x-nav-link> --}}
         </div>
         <div class="border-t border-gray-700 pb-3 pt-4">
             <div class="flex items-center px-5">
