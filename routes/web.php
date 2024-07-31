@@ -64,18 +64,6 @@ Route::middleware('auth')->group(function () {
 });
 
 
-// Route::resource('blog',PostController::class);
-
-//route for CRUD 
-// Route::middleware('auth')->group(function () {
-//     // Route::get('/blog', [PostController::class, 'index'])->name('blog.index');
-//     Route::get('/blog', [PostController::class, 'create'])->name('blog.create');
-//     Route::post('/blog', [PostController::class, 'store'])->name('blog.store');
-//     Route::get('/blog/{post}/edit', [PostController::class, 'edit'])->name('blog.edit');
-//     Route::patch('/blog/{post}', [PostController::class, 'update'])->name('blog.update');
-//     Route::delete('/blog/{post}', [PostController::class, 'destroy'])->name('blog.destroy');
-// });
-
 Route::middleware(['auth'])->group(function () {
     Route::post('/blog/store', [PostController::class, 'store'])->name('blog.store');
 });

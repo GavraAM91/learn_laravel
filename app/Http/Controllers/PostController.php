@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,7 +21,7 @@ class PostController extends Controller
         $userId = Auth::id();
 
         // Mengambil all post
-        $posts = Post::where('id', $userId)->get();
+        $posts = Post::where('author_id', $userId)->get();
 
         return view('blog.index', [
             'title' => 'My Blog Posts',
