@@ -58,22 +58,12 @@
                                 </th>
                                 <td class="px-4 py-3">{{ $post['category']['name'] }}</td>
                                 <td class="px-4 py-3">{{ $post['author']['name'] }}</td>
-                                <td class="px-4 py-3">{{ $post['body'] }}</td>
+                                <td class="px-4 py-3">{{ Str::limit($post['body'], 100) }}</td>
                                 <td class="px-4 py-3">{{ $post['slug'] }}</td>
                                 <td class="px-4 py-3 flex items-center justify-end">
-                                    {{-- <a href="{{ route('blog.show', $post->id) }}" class="btn btn-info">Show</a>
-                                    <a href="{{ route('blog.edit', $post->id) }}"
-                                        class="btn btn-primary">Edit</a>
-                                    <form action="{{ route('blog.destroy', $post->id) }}" method="POST"
-                                        style="display:inline-block;">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">Delete</button>
-                                    </form>
-                                    @dump($post['id']) --}}
                                     <a href="{{ route('blog.edit', $post->id) }}"><button type="submit"
                                             class="flex items-center justify-center mr-2 text-white bg-green-400 hover:bg-green-500 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-green-400 dark:hover:bg-green-500 focus:outline-none dark:focus:ring-green-500">
-                                            Edit Blog
+                                            Edit
                                         </button>
                                     </a>
                                     <form action="{{ route('blog.destroy', $post['id']) }}" method="POST">
@@ -84,6 +74,11 @@
                                             Delete
                                         </button>
                                     </form>
+                                    <a href="{{ route('blog.show', $post->id) }}"><button type="submit"
+                                            class="flex items-center justify-center ml-2 text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:ring-green-800 font-medium rounded-lg text-sm px-4 py-2 dark:bg-green-400 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800">
+                                            Show
+                                        </button>
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach

@@ -54,6 +54,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+//routing for create read update and delete 
 Route::middleware('auth')->group(function () {
     Route::resource('blog', PostController::class);
 });

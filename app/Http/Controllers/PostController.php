@@ -67,9 +67,11 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        return view('blog.show');
+    public function show(Post $post, $id)
+    {   
+        $title = 'Single Post (author only)';
+        $post = Post::findOrFail($id);
+        return view('blog.show', compact('post', 'title'));
     }
 
     /**
@@ -81,7 +83,8 @@ class PostController extends Controller
         // dd(compact('post')); 
         // dd($id); 
         $post = Post::findOrFail($id);
-        return view('blog.edit', compact('post'),['title' => 'edit']);
+        $title = 'edit';
+        return view('blog.edit', compact('post', 'title'));
     }
 
     /**
@@ -89,8 +92,6 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post, $id)
     {
-        // dd($request);
-
         $request->validate([
             'title' => 'required|string|min:3',
             'category_id' => 'required',
