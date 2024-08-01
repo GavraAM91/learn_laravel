@@ -75,15 +75,19 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Post $post)
+    public function edit(Post $post,$id)
     {
-        return view('blog.edit', compact('category'));
+        //dump data
+        // dd(compact('post')); 
+        // dd($id); 
+        $post = Post::findOrFail($id);
+        return view('blog.edit', compact('post'),['title' => 'edit']);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, Post $post, $id)
     {
         // dd($request);
 
@@ -95,6 +99,13 @@ class PostController extends Controller
 
         //get author_id 
         $authorId = Auth::id();
+
+        //check if id on the table
+        $post = Post::findOrFail($id);
+
+        // dd($request);
+        // dd($authorId);
+        // dd($post);
 
         $post->update([
             'title' => $request->title,
@@ -110,8 +121,11 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Post $post, $id)
     {
-        //
+        // dd($post['id']);
+        $post = Post::find($id);
+        $post->delete();
+        return redirect()->route('blog.index')->with('status', 'Blog Deleted Succesfully ');
     }
 }
